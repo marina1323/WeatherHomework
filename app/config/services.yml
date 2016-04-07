@@ -1,0 +1,22 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/book/service_container.html
+parameters:
+#    parameter_name: value
+
+services:
+#    service_name:
+#        class: AppBundle\Directory\ClassName
+#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+
+      nfq_weather.parser.open_weather_map:
+                       class: Nfq\WeatherBundle\Parsers\OpenWeatherMapDataParser
+                       public: false
+
+
+      nfq_weather.provider.open_weather_map:
+               class: Nfq\WeatherBundle\Providers\OpenWeatherMapProvider
+               arguments: ["@nfq_weather.parser.open_weather_map","%api_key%"]
+
+      nfq.weather:
+              class: Nfq\WeatherBundle\Services\WeatherService
+              arguments: ["@nfq_weather.provider.open_weather_map"]
