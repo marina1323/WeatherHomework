@@ -15,7 +15,6 @@ use Nfq\WeatherBundle\Exceptions\WeatherProviderException;
 class YahooWeatherDataParser implements DataParserInterface
 {
 
-
     public function parseData(string $jsonData):Weather
     {
         $data = json_decode($jsonData);

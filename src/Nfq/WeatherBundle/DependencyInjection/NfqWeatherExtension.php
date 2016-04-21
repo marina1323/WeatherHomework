@@ -27,10 +27,6 @@ class NfqWeatherExtension extends Extension
         $container->setParameter('nfq_weather.delegating_providers', $config['providers']['delegating']['providers']);
         $container->setParameter('nfq_weather.cached_provider', $config['providers']['cached']['provider']);
         $container->setParameter('file', $container->getParameter('kernel.root_dir') . '/cache/weather/weather.txt');
-        var_dump($container->getParameter('file'));
-
-
     }
-
 
 }

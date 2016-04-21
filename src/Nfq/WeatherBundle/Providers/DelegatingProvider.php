@@ -25,7 +25,6 @@ class DelegatingProvider implements WeatherProviderInterface
             $this->providers=$providers;
     }
 
-
     public function fetchCurrentWeather(Location $location):Weather
     {
         foreach ($this->providers as $provider)
