@@ -4,29 +4,35 @@ namespace Nfq\WeatherBundle\Objects;
 
 class Location
 {
+    private $cityName;
+
     private $lat;
 
     private $lon;
 
 
-    public function __construct($lat, $lon)
+    public function __construct(float $lat, float $lon)
     {
-        if(!is_numeric($lat)|| !is_numeric($lon))
-        {
-            throw new \Exception('Latitude and longitude must be numeric: '.$lat." ".$lon);
-        }
-
             $this->lat = $lat;
             $this->lon = $lon;
-
     }
 
-    public function getLatitude()
+    public function setCityName(string $cityName)
+    {
+        $this->cityName = $cityName;
+    }
+
+    public function getCityName():string
+    {
+        return $this->cityName;
+    }
+
+    public function getLatitude():float
     {
         return $this->lat;
     }
 
-    public function getLongitude()
+    public function getLongitude():float
     {
         return $this->lon;
     }

@@ -1,0 +1,15 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: 127.0.0.1
+    database_port: null
+    database_name: symfony
+    database_user: root
+    database_password: null
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: null
+    mailer_password: null
+    secret: ThisTokenIsNotSoSecretChangeIt
+    openweathermap_api_key: 0d878f35dce08d322c98eb2d9dc7e2d6
+
+

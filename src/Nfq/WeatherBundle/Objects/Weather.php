@@ -7,21 +7,15 @@ class Weather
     private $temperature;
 
 
-    public function __construct($temperature)
+    public function __construct(float $temperature)
     {
         $this->temperature = $temperature;
     }
 
-    public function getTemperature()
+    public function getTemperature():float
     {
         return $this->temperature;
     }
-
-    public function __toString()
-    {
-        return strval($this->temperature);
-    }
-
 
 
 }

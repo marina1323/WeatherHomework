@@ -8,6 +8,6 @@ use Nfq\WeatherBundle\Objects\Weather;
 
 interface DataParserInterface
 {
-    public function parseData($jsonData):Weather;
+    public function parseData(string $jsonData):Weather;
 
 }

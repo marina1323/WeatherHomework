@@ -2,18 +2,19 @@
 /**
  * Created by PhpStorm.
  * User: marina
- * Date: 16.4.7
- * Time: 10.09
+ * Date: 16.4.9
+ * Time: 14.01
  */
 
 namespace Nfq\WeatherBundle\Parsers;
 
 
-use Nfq\WeatherBundle\Exceptions\WeatherProviderException;
 use Nfq\WeatherBundle\Objects\Weather;
+use Nfq\WeatherBundle\Exceptions\WeatherProviderException;
 
-class OpenWeatherMapDataParser implements DataParserInterface
+class YahooWeatherDataParser implements DataParserInterface
 {
+
 
     public function parseData(string $jsonData):Weather
     {
@@ -24,16 +25,13 @@ class OpenWeatherMapDataParser implements DataParserInterface
             throw new WeatherProviderException('Unable to get json data');
         }
 
-        if (isset($data->cod) && $data->cod !== 200)
-        {
-            throw new WeatherProviderException('The request was unsuccessful');
-        }
-
-        if(!isset($data->main->temp))
+        if(!isset($data->query->results->channel->item->condition->temp))
         {
             throw new WeatherProviderException('Unable to get temperature');
         }
 
-         return new Weather(round($data->main->temp));
+        $weather = new Weather(round($data->query->results->channel->item->condition->temp));
+
+        return $weather;
     }
 }
